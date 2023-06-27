@@ -1,3 +1,4 @@
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,6 +8,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Rachel.Middleware;
+using Rachel.Services.Implementations;
+using Rachel.Services.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,8 +36,12 @@ namespace Rachel
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Rachel", Version = "v1" });
             });
-        }
 
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddMemoryCache();
+            services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
+            services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -54,6 +62,8 @@ namespace Rachel
             {
                 endpoints.MapControllers();
             });
+            app.UseIpRateLimiting();
+            app.UseMiddleware<RateLimitMiddleware>();
         }
     }
 }

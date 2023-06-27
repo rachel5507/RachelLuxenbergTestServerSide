@@ -1,0 +1,7 @@
+C:\Users\rachelkra\Desktop\Rachel\Rachel\obj\Debug\net5.0\Rachel.csproj.AssemblyReference.cache
+C:\Users\rachelkra\Desktop\Rachel\Rachel\obj\Debug\net5.0\Rachel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rachelkra\Desktop\Rachel\Rachel\obj\Debug\net5.0\Rachel.AssemblyInfoInputs.cache
+C:\Users\rachelkra\Desktop\Rachel\Rachel\obj\Debug\net5.0\Rachel.AssemblyInfo.cs
+C:\Users\rachelkra\Desktop\Rachel\Rachel\obj\Debug\net5.0\Rachel.csproj.CoreCompileInputs.cache
+C:\Users\rachelkra\Desktop\Rachel\Rachel\obj\Debug\net5.0\Rachel.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\rachelkra\Desktop\Rachel\Rachel\obj\Debug\net5.0\Rachel.MvcApplicationPartsAssemblyInfo.cache
